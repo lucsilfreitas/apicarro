@@ -11,7 +11,19 @@ module.exports = {
                 aceito(results);
             });
         });
-    }
+    },
 
+    inserir: (id_ipva, ano, preco)=> {
+        return new Promise((aceito, rejeitado)=> {
+
+            db.query('INSERT INTO ipva (id_ipva, ano, preco) VALUES (?, ?, ?)',
+                [id_ipva, ano, preco],
+                (error, results)=>{
+                    if(error){ rejeitado(error); return; }
+                    aceito(results.insertCodigo); //insertId
+                }
+            );
+        });
+    },
 
 }

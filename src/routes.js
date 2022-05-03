@@ -10,5 +10,6 @@ router.post('/carro', carroController.inserir);
 router.put('/carro/:codigo', carroController.alterar);
 router.delete('/carro/:codigo', carroController.excluir);
 router.get('/ipva', ipvaController.buscarTodos);
+router.post('/ipva', ipvaController.inserir);
 
 module.exports = router;
